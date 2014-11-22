@@ -1,10 +1,5 @@
 <?php
 
-Route::get('alo', function() {
-	return 'ole';
-});
-
-
 Route::group(array('prefix' => 'usuarios'), function(){
 	Route::post('login', array(
 		'as'	=> 'login',
@@ -27,10 +22,6 @@ Route::group(array('prefix'=>'sistema', 'before'=>'auth'), function() {
 Route::group(array('prefix' => '/'), function() {
 	Route::get('/', array(
 		'as' => 'index',
-		'uses' => 'UsersController@showLogin'
-	));
-	Route::get('alo', array(
-		'as' => 'alo',
 		'uses' => 'UsersController@showLogin'
 	));
 });	
