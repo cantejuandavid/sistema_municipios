@@ -12,7 +12,6 @@
 					{{ Form::label('username','Email') }}													
 					{{ Form::text('username', null, array('class'=>'form-control', 'id'=>'username', 'required')) }}							
 				</div>
-
 				<div class="bloque">							
 					{{ Form::label('password', 'Contraseña: ') }}							
 					{{ Form::password('password', array('class'=>'form-control', 'id'=>'password', 'required')) }}							
@@ -37,14 +36,15 @@
 					</div>
 				@endif	
 
+				@if(Session::has('login_error'))
+					<div class="alert alert-danger">{{ Session::get('login_error') }}</div>
+			    @endif
+
 				<div class="areaSubmit">
 					{{ Form::submit('Ingresar', array('class'=>'btn btn-orange')) }}
 				</div>
 
 			{{ Form::close() }}
-		</div>
-		<div>
-			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore quaerat laudantium reprehenderit molestias eius in saepe velit, repellendus culpa ullam soluta. Voluptatem at consectetur repudiandae facere quas quo soluta voluptatibus!</p>
 		</div>
 	</div>
 	

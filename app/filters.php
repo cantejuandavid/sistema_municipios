@@ -41,6 +41,16 @@ Route::filter('auth', function()
 	}	
 });
 
+Route::filter('loginAuth', function()
+{
+	if(!Auth::check())
+	{ 		
+		return Redirect::to('/');
+	}	
+	else {
+		return Redirect::route('getSistema');
+	}
+});
 
 Route::filter('auth.basic', function()
 {

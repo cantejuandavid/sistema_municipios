@@ -6,6 +6,11 @@ class UsersController extends BaseController {
 		return View::make('usuarios.login');
 	}
 
+	public function logout() {
+		Auth::logout();
+		return Redirect::back();
+	}
+
 
 	public function login()
 	{
@@ -34,7 +39,7 @@ class UsersController extends BaseController {
         	return Redirect::route('getSistema');                                 	            
         }
 
-        return Redirect::route('loginUser')
+        return Redirect::route('index')
                     ->with('login_error', 'Usuario y/o contraseña son incorrectos')
                     ->withInput();
 	}
