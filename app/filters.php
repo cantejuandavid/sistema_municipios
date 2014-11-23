@@ -43,11 +43,8 @@ Route::filter('auth', function()
 
 Route::filter('loginAuth', function()
 {
-	if(!Auth::check())
-	{ 		
-		return Redirect::to('/');
-	}	
-	else {
+	if(Auth::check())
+	{ 	
 		return Redirect::route('getSistema');
 	}
 });
