@@ -4,6 +4,9 @@
 		{{ HTML::script('frameworks/ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/script.js') }}
 	<div class="sistema">
+		<div class="huilaTitle">
+			HUILA
+		</div>
 		<div class="buttons">
 			{{ HTML::linkRoute('getSistema', 'Atrás',null, array('class'=>'btn btn-red')) }}	
 		</div>
@@ -30,7 +33,7 @@
 					</div>
 					<div class="bloqueDescripcion">
 						<label for="descripcion">Descripción: </label>
-						<textarea name="descripcion" id="descripcion" rows="10" cols="80" class="form-control">
+						<textarea name="descripcion" id="descripcion" rows="5" cols="80" class="form-control">
 				        	Descripción breve del municipio.
 				        </textarea>
 				        <script>

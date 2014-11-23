@@ -3,6 +3,9 @@
 @section('content')
 	
 	<div class="sistema">
+		<div class="huilaTitle">
+			HUILA
+		</div>
 		<div class="buttons">
 			{{ HTML::linkRoute('logout', 'Salir','', array('class'=>'btn btn-red')) }}
 			{{ HTML::linkRoute('createMunicipio', 'Crear municipio',array(), array('class'=>'btn btn-yellow')) }}
@@ -32,7 +35,7 @@
 					<ul>				
 						@foreach ($sitios as $s)	
 							<li>
-								{ HTML::linkRoute('showMunicipio', $s->nombre, array($s->id)) }}
+								{{ HTML::linkRoute('showSitio', $s->nombre, array($s->id)) }}
 							</li>
 						@endforeach
 					</ul>

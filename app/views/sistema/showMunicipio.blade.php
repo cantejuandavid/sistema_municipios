@@ -4,9 +4,12 @@
 		{{ HTML::script('frameworks/ckeditor/ckeditor.js') }}
 		{{ HTML::script('js/script.js') }}
 	<div class="sistema">
+		<div class="huilaTitle">
+			HUILA
+		</div>
 		<div class="buttons">
 			{{ HTML::linkRoute('getSistema', 'Atrás',null, array('class'=>'btn btn-red')) }}	
-			{{ HTML::linkRoute('eliminarMunicipio', 'Eliminar',array($municipio->id), array('class'=>'btn btn-green')) }}	
+			{{ HTML::linkRoute('eliminarMunicipio', 'Eliminar',array($municipio->id), array('class'=>'btn btn-aqua')) }}	
 		</div>
 		<div class="content">
 			<div class="title">{{ $municipio->nombre }}</div>

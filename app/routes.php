@@ -52,6 +52,11 @@ Route::group(array('prefix'=>'sistema', 'before'=>'auth'), function() {
 		'uses' => 'Municipios@show'
 	));
 
+	Route::get('sitio/{id}', array(
+		'as' => 'showSitio',
+		'uses' => 'Sitios@show'
+	));
+
 });
 
 

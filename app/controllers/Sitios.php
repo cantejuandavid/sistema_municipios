@@ -8,4 +8,9 @@ class Sitios extends BaseController {
 		return View::make('sistema.createSitio');
 	}
 
+	public function show()
+	{
+		return View::make('sistema.createSitio');
+	}
+
 }
