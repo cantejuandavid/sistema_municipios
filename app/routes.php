@@ -29,16 +29,27 @@ Route::group(array('prefix'=>'sistema', 'before'=>'auth'), function() {
 		'as' => 'editMunicipio',
 		'uses' => 'Municipios@edit'
 	));
-
-
-	Route::get('municipio/{id}', array(
-		'as' => 'showMunicipio',
-		'uses' => 'SistemaMunicipios@show'
+	Route::post('municipio/editar', array(
+		'as' => 'updateMunicipio',
+		'uses' => 'Municipios@update'
 	));
+
+	Route::get('municipio/eliminar/{id}', array(
+		'as' => 'eliminarMunicipio',
+		'uses' => 'Municipios@remove'
+	));
+
+
+	
 
 	Route::get('sitio/crear', array(
 		'as' => 'createSitioTuristico',
 		'uses' => 'Sitios@create'
+	));
+
+	Route::get('municipio/{id}', array(
+		'as' => 'showMunicipio',
+		'uses' => 'Municipios@show'
 	));
 
 });

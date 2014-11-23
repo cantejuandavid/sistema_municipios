@@ -37,7 +37,8 @@
 				@endif	
 
 				@if(Session::has('login_error'))
-					<div class="alert alert-danger">{{ Session::get('login_error') }}</div>
+					<div class="alert alert-danger"><i class="fa fa-times"></i>
+ {{ Session::get('login_error') }}</div>
 			    @endif
 
 				<div class="areaSubmit">

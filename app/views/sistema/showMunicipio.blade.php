@@ -6,17 +6,19 @@
 	<div class="sistema">
 		<div class="buttons">
 			{{ HTML::linkRoute('getSistema', 'Atrás',null, array('class'=>'btn btn-red')) }}	
+			{{ HTML::linkRoute('eliminarMunicipio', 'Eliminar',array($municipio->id), array('class'=>'btn btn-green')) }}	
 		</div>
 		<div class="content">
-			<div class="title">Nuevo Municipio</div>
+			<div class="title">{{ $municipio->nombre }}</div>
 			<div class="form">
-				{{ Form::open(array('url' => 'sistema/municipio/crear', 'id'=>'crearMunicipio')) }}
+				{{ Form::model($municipio, array(
+					'route' => array('updateMunicipio', $municipio->id),
+					'method' => 'post',
+					'enctype' => 'multipart/form-data')) }}
+
 
 					<div class="bloque">
-						{{ Form::label('nombre','Nombre:') }}													
-						{{ Form::text('nombre', null, array('class'=>'form-control', 'id'=>'nombre', 'required')) }}							
-					</div>
-					<div class="bloque">
+						{{ Form::hidden('id', null, array('id'=>'id')) }}	
 						{{ Form::label('otros_nombres','Otros nombres:') }}													
 						{{ Form::text('otros_nombres', null, array('class'=>'form-control', 'id'=>'otros_nombres')) }}							
 					</div>
@@ -29,11 +31,9 @@
 						{{ Form::text('habitantes', null, array('class'=>'form-control', 'id'=>'habitantes', 'required')) }}							
 					</div>
 					<div class="bloqueDescripcion">
-						<label for="descripcion">Descripción: </label>
-						<textarea name="descripcion" id="descripcion" rows="10" cols="80" class="form-control">
-				        	Descripción breve del municipio.
-				        </textarea>
-				        <script>
+						{{ Form::label('descripcion', 'Descripción') }}
+						{{ Form::textarea('descripcion', null) }}
+		 				<script>
 				            CKEDITOR.replace( 'descripcion', {
 							    language: 'es'
 							});
@@ -59,15 +59,21 @@
 							<i class="fa fa-exclamation-triangle"></i>
  							{{ Session::get('existe') }}
  						</div>
-		    		@endif			
+		    		@endif		
+		    		@if(Session::has('updated'))
+						<div class="success">
+							<i class="fa fa-check"></i>
+ 							{{ Session::get('updated') }}
+ 						</div>
+		    		@endif		
 					<div class="areaSubmit">
-						{{ Form::submit('Crear', array('class'=>'btn btn-yellow')) }}
+						{{ Form::submit('Guardar', array('class'=>'btn btn-yellow')) }}
 						<div>
 							
 						</div>
 					</div>
-
 				{{ Form::close() }}
+
 			</div>
 		</div>
 		
