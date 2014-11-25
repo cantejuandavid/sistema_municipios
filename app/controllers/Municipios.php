@@ -12,7 +12,8 @@ class Municipios extends BaseController {
 	public function show($id)
 	{		
 		$b = Municipio::find($id);	
-		return View::make('sistema.showMunicipio', array('municipio'=>$b));
+		$sitios = Sitio::where('id_municipio','=',$b->id)->get();			
+		return View::make('sistema.showMunicipio', array('municipio'=>$b,'sitios'=>$sitios));
 	}
 
 	public function create()
@@ -43,9 +44,8 @@ class Municipios extends BaseController {
 		}
 	}
 
-	public function update()
+	public function update($id)
 	{
-		$id = Input::get('id');		
 		$n 					= Municipio::find($id);			
 		$n->otros_nombres 	= Input::get('otros_nombres');
 		$n->gentilicio 		= Input::get('gentilicio');
@@ -56,7 +56,7 @@ class Municipios extends BaseController {
 
 		
 		return Redirect::back()
-					->with('updated', 'Se ha actualizado con éxito este municipio')                   
+					->with('updated', 'Se ha actualizado con éxito este municipio!')                   
 	                ->withInput();
 	}
 

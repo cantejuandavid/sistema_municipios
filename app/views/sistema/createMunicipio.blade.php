@@ -8,40 +8,44 @@
 			HUILA
 		</div>
 		<div class="buttons">
-			{{ HTML::linkRoute('getSistema', 'Atrás',null, array('class'=>'btn btn-red')) }}	
+			{{ HTML::decode(HTML::linkRoute('getSistema', '<i class="fa fa-chevron-left"></i> Atrás',null, array('class'=>'btn btn-red'))) }}	
 		</div>
 		<div class="content">
 			<div class="title">Nuevo Municipio</div>
 			<div class="form">
 				{{ Form::open(array('url' => 'sistema/municipio/crear', 'id'=>'crearMunicipio')) }}
-
-					<div class="bloque">
-						{{ Form::label('nombre','Nombre:') }}													
-						{{ Form::text('nombre', null, array('class'=>'form-control', 'id'=>'nombre', 'required')) }}							
-					</div>
-					<div class="bloque">
-						{{ Form::label('otros_nombres','Otros nombres:') }}													
-						{{ Form::text('otros_nombres', null, array('class'=>'form-control', 'id'=>'otros_nombres')) }}							
-					</div>
-					<div class="bloque">
-						{{ Form::label('gentilicio','Gentilicio:') }}													
-						{{ Form::text('gentilicio', null, array('class'=>'form-control', 'id'=>'gentilicio', 'required')) }}							
-					</div>
-					<div class="bloque">							
-						{{ Form::label('habitantes', 'Habitantes: ') }}							
-						{{ Form::text('habitantes', null, array('class'=>'form-control', 'id'=>'habitantes', 'required')) }}							
-					</div>
-					<div class="bloqueDescripcion">
-						<label for="descripcion">Descripción: </label>
-						<textarea name="descripcion" id="descripcion" rows="5" cols="80" class="form-control">
-				        	Descripción breve del municipio.
-				        </textarea>
-				        <script>
-				            CKEDITOR.replace( 'descripcion', {
-							    language: 'es'
-							});
-				        </script>
-					</div>
+					<fieldset>						
+						<legend>Datos</legend>	
+						<div class="bloque">
+							{{ Form::label('nombre','Nombre:') }}													
+							{{ Form::text('nombre', null, array('class'=>'form-control', 'id'=>'nombre', 'required')) }}							
+						</div>
+						<div class="bloque">
+							{{ Form::label('otros_nombres','Otros nombres:') }}													
+							{{ Form::text('otros_nombres', null, array('class'=>'form-control', 'id'=>'otros_nombres')) }}							
+						</div>
+						<div class="bloque">
+							{{ Form::label('gentilicio','Gentilicio:') }}													
+							{{ Form::text('gentilicio', null, array('class'=>'form-control', 'id'=>'gentilicio', 'required')) }}							
+						</div>
+						<div class="bloque">							
+							{{ Form::label('habitantes', 'Habitantes: ') }}							
+							{{ Form::text('habitantes', null, array('class'=>'form-control', 'id'=>'habitantes', 'required')) }}							
+						</div>	
+					</fieldset>		
+					<fieldset>						
+						<legend>Descripción</legend>			
+						<div class="bloqueDescripcion">							
+							<textarea name="descripcion" id="descripcion" rows="5" cols="80" class="form-control">
+					        	Descripción breve del municipio.
+					        </textarea>
+					        <script>
+					            CKEDITOR.replace( 'descripcion', {
+								    language: 'es'
+								});
+					        </script>
+						</div>
+					</fieldset>
 
 					@if($errors->has())
 						<div class='alert alert-danger'>						
@@ -64,7 +68,7 @@
  						</div>
 		    		@endif			
 					<div class="areaSubmit">
-						{{ Form::submit('Crear', array('class'=>'btn btn-yellow')) }}
+						{{ HTML::decode(Form::button('<i class="fa fa-check"></i> Crear', array('class'=>'btn btn-yellow','type'=>'submit'))) }}
 						<div>
 							
 						</div>

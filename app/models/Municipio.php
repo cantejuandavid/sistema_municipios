@@ -23,4 +23,5 @@ class Municipio extends Eloquent {
 		'descripción'
 	);	
 
+
 }

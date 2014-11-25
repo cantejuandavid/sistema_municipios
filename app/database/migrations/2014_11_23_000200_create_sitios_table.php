@@ -12,13 +12,18 @@ class CreateSitiosTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('sitios', function(Blueprint $table) {
-			$table->increments('id');
-			$table->string('nombre', 100);
-			$table->string('descripcion');		
-			$table->string('id_municipio', 100);					
-			$table->string('imagen', 100);
-			$table->timestamps();
+		// Schema::create('sitios', function(Blueprint $table) {
+		// 	$table->increments('id');
+		// 	$table->string('nombre', 100);
+		// 	$table->string('descripcion');		
+		// 	$table->string('id_municipio', 100);					
+		// 	$table->string('imagen', 100);
+		// 	$table->timestamps();
+		// });
+
+		Schema::table('sitios', function($table)
+		{
+		    $table->string('corto');
 		});
 	}
 

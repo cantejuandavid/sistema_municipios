@@ -7,8 +7,9 @@
 			HUILA
 		</div>
 		<div class="buttons">
-			{{ HTML::linkRoute('logout', 'Salir','', array('class'=>'btn btn-red')) }}
-			{{ HTML::linkRoute('createMunicipio', 'Crear municipio',array(), array('class'=>'btn btn-yellow')) }}
+			{{ HTML::decode(HTML::linkRoute('logout', '<i class="fa fa-power-off"></i> Salir','', array('class'=>'btn btn-red'))) }}
+			{{ HTML::decode(HTML::linkRoute('createMunicipio', '<i class="fa fa-plus"></i>
+ Crear municipio',array(), array('class'=>'btn btn-yellow'))) }}
 		</div>
 		<div class="content">
 

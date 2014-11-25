@@ -17,47 +17,57 @@ Route::group(array('prefix'=>'sistema', 'before'=>'auth'), function() {
 		'as' => 'getSistema',
 		'uses' => 'Municipios@index'
 	));
-	Route::get('municipio/crear', array(
+});
+Route::group(array('prefix'=>'sistema/municipio', 'before'=>'auth'), function() {
+	Route::get('crear', array(
 		'as' => 'createMunicipio',
 		'uses' => 'Municipios@create'
 	));
-	Route::post('municipio/crear', array(
+	Route::post('crear', array(
 		'as' => 'guardarMunicipio',
 		'uses' => 'Municipios@store'
 	));
-	Route::get('municipio/editar', array(
-		'as' => 'editMunicipio',
-		'uses' => 'Municipios@edit'
-	));
-	Route::post('municipio/editar', array(
+	Route::post('editar/{id}', array(
 		'as' => 'updateMunicipio',
 		'uses' => 'Municipios@update'
 	));
 
-	Route::get('municipio/eliminar/{id}', array(
+	Route::get('eliminar/{id}', array(
 		'as' => 'eliminarMunicipio',
 		'uses' => 'Municipios@remove'
 	));
 
-
-	
-
-	Route::get('sitio/crear', array(
-		'as' => 'createSitioTuristico',
-		'uses' => 'Sitios@create'
-	));
-
-	Route::get('municipio/{id}', array(
+	Route::get('{id}', array(
 		'as' => 'showMunicipio',
 		'uses' => 'Municipios@show'
 	));
-
-	Route::get('sitio/{id}', array(
-		'as' => 'showSitio',
-		'uses' => 'Sitios@show'
+});
+Route::group(array('prefix'=>'sistema/sitio', 'before'=>'auth'), function() {
+	Route::get('crear/{id}', array(
+		'as' => 'crearSitio',
+		'uses' => 'Sitios@create'
 	));
 
+	Route::post('crear', array(
+		'as' => 'guardarSitio',
+		'uses' => 'Sitios@store'
+	));
+	Route::post('editar/{id}', array(
+		'as' => 'updateSitio',
+		'uses' => 'Sitios@update'
+	));
+
+	Route::get('eliminar/{id}', array(
+		'as' => 'eliminarSitio',
+		'uses' => 'Sitios@remove'
+	));
+
+	Route::get('{id}', array(
+		'as' => 'showSitio',
+		'uses' => 'Sitios@index'
+	));
 });
+	
 
 Route::group(array('prefix' => '/', 'before'=>'loginAuth'), function() {
 	Route::get('/', array(
