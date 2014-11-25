@@ -10,6 +10,14 @@
 		<div class="buttons">
 			{{ HTML::linkRoute('getSistema', 'Atrás',null, array('class'=>'btn btn-red')) }}	
 			{{ HTML::linkRoute('eliminarMunicipio', 'Eliminar',array($municipio->id), array('class'=>'btn btn-aqua')) }}	
+
+			<div class="sitios_turisticos">
+				<div class="title_ul">Sitios turísticos: </div>
+				<ul>
+					<li><a href="">Monumento</a></li>
+					<li><a href="">Desierto de la Tatacoa</a></li>
+				</ul>
+			</div>
 		</div>
 		<div class="content">
 			<div class="title">{{ $municipio->nombre }}</div>

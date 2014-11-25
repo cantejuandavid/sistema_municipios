@@ -59,7 +59,6 @@ Route::group(array('prefix'=>'sistema', 'before'=>'auth'), function() {
 
 });
 
-
 Route::group(array('prefix' => '/', 'before'=>'loginAuth'), function() {
 	Route::get('/', array(
 		'as' => 'index',
